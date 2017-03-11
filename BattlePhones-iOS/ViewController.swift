@@ -21,9 +21,33 @@ class ViewController: UIViewController {
 
     func connectToServer() {
         websocketServer.connect()
-        
+        websocketServer.delegate = self
+    }
+    
+    @IBAction func sendButtonPressed(_ sender: Any) {
+        websocketServer.write(string: "Sendimg message from iOS Client")
     }
 
 
+}
+
+extension ViewController: WebSocketDelegate {
+    
+    func websocketDidConnect(socket: WebSocket) {
+        socket.write(string: "Matt");
+    }
+    
+    func websocketDidReceiveData(socket: WebSocket, data: Data) {
+        
+    }
+    
+    func websocketDidDisconnect(socket: WebSocket, error: NSError?) {
+        
+    }
+    
+    func websocketDidReceiveMessage(socket: WebSocket, text: String) {
+        
+    }
+    
 }
 
