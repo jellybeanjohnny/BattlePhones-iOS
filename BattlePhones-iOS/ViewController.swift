@@ -7,17 +7,21 @@
 //
 
 import UIKit
+import Starscream
 
 class ViewController: UIViewController {
 
+    var websocketServer = WebSocket(url: URL(string: "ws://localhost:8080/")!)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        connectToServer()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func connectToServer() {
+        websocketServer.connect()
+        
     }
 
 
