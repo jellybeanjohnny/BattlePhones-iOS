@@ -11,7 +11,10 @@ import Starscream
 
 class ViewController: UIViewController {
 
+    
+    @IBOutlet weak var textField: UITextField!
     var websocketServer = WebSocket(url: URL(string: "ws://localhost:8080/")!)
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,21 +27,35 @@ class ViewController: UIViewController {
         websocketServer.delegate = self
     }
     
-    @IBAction func sendButtonPressed(_ sender: Any) {
-        websocketServer.write(string: "Sendimg message from iOS Client")
+    deinit {
+        websocketServer.disconnect(forceTimeout: 0)
+        websocketServer.delegate = nil
     }
-
+    
 
 }
 
 extension ViewController: WebSocketDelegate {
     
     func websocketDidConnect(socket: WebSocket) {
-        socket.write(string: "Matt");
+        let userinfo = ["username" : "Matt",
+                        "uuid" : "1234abcd",
+                        "eventType" : "playerJoined"]
+        
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: userinfo, options: .prettyPrinted)
+            let jsonString = String(data: jsonData, encoding: .utf8)!
+            websocketServer.write(string: jsonString)
+        } catch {
+            print(error.localizedDescription)
+        }
+        
+        
+
     }
     
     func websocketDidReceiveData(socket: WebSocket, data: Data) {
-        
+
     }
     
     func websocketDidDisconnect(socket: WebSocket, error: NSError?) {
