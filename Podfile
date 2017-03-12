@@ -6,6 +6,7 @@ target 'BattlePhones-iOS' do
   use_frameworks!
 
   pod 'Starscream', '~> 2.0.3'
+  pod 'Alamofire', '~> 4.4'
 
   # Pods for BattlePhones-iOS
 
