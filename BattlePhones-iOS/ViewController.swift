@@ -12,7 +12,7 @@ import Alamofire
 
 class ViewController: UIViewController {
 
-    static let localhostURLString = "http://localhost:8080/newPlayer"
+    static let localhostURLString = "http://localhost:8080/player"
     static let localhostWebSocketServer = "ws://localhost:8080/"
     static let herokuWebSocketServer = "ws://battlephones-server.herokuapp.com/"
     
@@ -59,7 +59,11 @@ class ViewController: UIViewController {
         ]
         
         Alamofire.request(ViewController.localhostURLString, method: .post, parameters: parameters).responseJSON { (response) in
-            print(response.response)
+            if let data = response.data,
+                let json = String(data: data, encoding: String.Encoding.utf8),
+                let code = response.response?.statusCode {
+                print("Code: \(code), Response: \(json)")
+            }
         }
         
     }
