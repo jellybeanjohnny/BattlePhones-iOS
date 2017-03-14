@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C98F3BD51E77697A00BE54DE /* AppCoordinatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98F3BD41E77697A00BE54DE /* AppCoordinatorViewController.swift */; };
 		C9A427AA1E7519E50019AD7B /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A427A91E7519E50019AD7B /* CloudKitManager.swift */; };
 		C9A427AD1E751F5A0019AD7B /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9A427AC1E751F5A0019AD7B /* CloudKit.framework */; };
 		C9A427AF1E7534040019AD7B /* ViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A427AE1E7534040019AD7B /* ViewController+Alert.swift */; };
+		C9B86CF51E766E3400CC497E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B86CF31E766E3400CC497E /* LoginViewController.swift */; };
+		C9B86CF61E766E3400CC497E /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9B86CF41E766E3400CC497E /* LoginViewController.xib */; };
 		C9D59E271E739B2A00A2DBF8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D59E261E739B2A00A2DBF8 /* AppDelegate.swift */; };
 		C9D59E291E739B2A00A2DBF8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D59E281E739B2A00A2DBF8 /* ViewController.swift */; };
 		C9D59E2C1E739B2A00A2DBF8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9D59E2A1E739B2A00A2DBF8 /* Main.storyboard */; };
@@ -20,10 +23,13 @@
 
 /* Begin PBXFileReference section */
 		2B56843CF61D2AD8850ADD7B /* Pods-BattlePhones-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BattlePhones-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-BattlePhones-iOS/Pods-BattlePhones-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		C98F3BD41E77697A00BE54DE /* AppCoordinatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinatorViewController.swift; sourceTree = "<group>"; };
 		C9A427A91E7519E50019AD7B /* CloudKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
 		C9A427AB1E7519ED0019AD7B /* BattlePhones-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "BattlePhones-iOS.entitlements"; sourceTree = "<group>"; };
 		C9A427AC1E751F5A0019AD7B /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		C9A427AE1E7534040019AD7B /* ViewController+Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+Alert.swift"; sourceTree = "<group>"; };
+		C9B86CF31E766E3400CC497E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		C9B86CF41E766E3400CC497E /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		C9D59E231E739B2A00A2DBF8 /* BattlePhones-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BattlePhones-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9D59E261E739B2A00A2DBF8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9D59E281E739B2A00A2DBF8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -57,6 +63,30 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C98F3BD31E77695400BE54DE /* App Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				C98F3BD41E77697A00BE54DE /* AppCoordinatorViewController.swift */,
+			);
+			name = "App Coordinator";
+			sourceTree = "<group>";
+		};
+		C98F3BD61E7769AB00BE54DE /* App */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = App;
+			sourceTree = "<group>";
+		};
+		C9B86CF21E766E1100CC497E /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				C9B86CF31E766E3400CC497E /* LoginViewController.swift */,
+				C9B86CF41E766E3400CC497E /* LoginViewController.xib */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
 		C9D59E1A1E739B2A00A2DBF8 = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +108,9 @@
 		C9D59E251E739B2A00A2DBF8 /* BattlePhones-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				C98F3BD61E7769AB00BE54DE /* App */,
+				C98F3BD31E77695400BE54DE /* App Coordinator */,
+				C9B86CF21E766E1100CC497E /* Login */,
 				C9A427AB1E7519ED0019AD7B /* BattlePhones-iOS.entitlements */,
 				C9D59E261E739B2A00A2DBF8 /* AppDelegate.swift */,
 				C9D59E281E739B2A00A2DBF8 /* ViewController.swift */,
@@ -171,6 +204,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9B86CF61E766E3400CC497E /* LoginViewController.xib in Resources */,
 				C9D59E311E739B2A00A2DBF8 /* LaunchScreen.storyboard in Resources */,
 				C9D59E2E1E739B2A00A2DBF8 /* Assets.xcassets in Resources */,
 				C9D59E2C1E739B2A00A2DBF8 /* Main.storyboard in Resources */,
@@ -233,8 +267,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9D59E291E739B2A00A2DBF8 /* ViewController.swift in Sources */,
+				C98F3BD51E77697A00BE54DE /* AppCoordinatorViewController.swift in Sources */,
 				C9D59E271E739B2A00A2DBF8 /* AppDelegate.swift in Sources */,
 				C9A427AA1E7519E50019AD7B /* CloudKitManager.swift in Sources */,
+				C9B86CF51E766E3400CC497E /* LoginViewController.swift in Sources */,
 				C9A427AF1E7534040019AD7B /* ViewController+Alert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
