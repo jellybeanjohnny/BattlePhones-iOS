@@ -1,5 +1,5 @@
 //
-//  CloudKitManager.swift
+//  CloudKitService.swift
 //  BattlePhones-iOS
 //
 //  Created by Matt Amerige on 3/11/17.
@@ -14,11 +14,10 @@ enum CloudKitError: Error {
     case other
 }
 
-struct CloudKitManager {
+struct CloudKitService {
     
-
-    
-    func loadCloudKitID(completion:@escaping (String?, CloudKitError?) -> Void) {
+    /// Loads the CloudKit ID if it exists, otherwise returns nil and an error. If the ID exists it is saved to user defaults
+    static func loadCloudKitID(completion:@escaping (String?, CloudKitError?) -> Void) {
         
         // Load any cached id if available
         if let cloudKitID = UserDefaults.standard.object(forKey: "cloudkit_uuid_string") as? String {

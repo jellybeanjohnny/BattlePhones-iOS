@@ -29,8 +29,8 @@ class ViewController: UIViewController {
     
     
     func loadCloudKitID() {
-        let manager = CloudKitManager()
-        manager.loadCloudKitID { [unowned self] (cloudKitID, error) in
+        
+        CloudKitService.loadCloudKitID { [unowned self] (cloudKitID, error) in
             if let error = error {
                 switch error {
                 case .notAuthenticated: self.showAlert(title: "Uh oh!", message: "You're not signed into iCloud. Please go to Settings and sign in to your iCloud Account.")

@@ -1,14 +1,13 @@
 //
-//  AppCoordinatorViewController.swift
+//  Item.swift
 //  BattlePhones-iOS
 //
 //  Created by Matt Amerige on 3/13/17.
 //  Copyright © 2017 Matt Amerige. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-class AppCoordinatorViewController: UIViewController {
-
-
+struct Item {
+    
 }
