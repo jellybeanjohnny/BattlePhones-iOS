@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
 
 struct PlayerService {
     
@@ -18,13 +19,15 @@ struct PlayerService {
         
         Alamofire.request(urlString, method: .post, parameters: parameters).validate().responseJSON { (response) in
             switch response.result {
-            case .success:
-                //TODO: Parse data for returned player object
-                if let data = response.data,
-                    let json = String(data: data, encoding: String.Encoding.utf8),
-                    let code = response.response?.statusCode {
-                    print("Code: \(code), Response: \(json)")
-                }
+            case .success(let value):
+                let json = JSON(value)
+                print(json)
+//                //TODO: Parse data for returned player object
+//                if let data = response.data,
+//                    let json = String(data: data, encoding: String.Encoding.utf8),
+//                    let code = response.response?.statusCode {
+//                    print("Code: \(code), Response: \(json)")
+//                }
                 success()
             case .failure(_):
                 failure()

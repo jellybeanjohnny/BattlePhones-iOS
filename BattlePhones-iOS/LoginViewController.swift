@@ -84,4 +84,12 @@ extension LoginViewController: LoginViewModelDelegate {
     func didFailToSavePlayer() {
         showAlert(title: "Uh oh!", message: "Something went wrong! Please try again")
     }
+    
+    func didBeginLoading() {
+        
+    }
+    
+    func didStopLoading() {
+        
+    }
 }

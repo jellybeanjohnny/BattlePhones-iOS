@@ -7,6 +7,7 @@ target 'BattlePhones-iOS' do
 
   pod 'Starscream', '~> 2.0.3'
   pod 'Alamofire', '~> 4.4'
+  pod 'SwiftyJSON'
 
   # Pods for BattlePhones-iOS
 
