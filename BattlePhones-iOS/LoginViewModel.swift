@@ -54,7 +54,7 @@ struct LoginViewModel {
     
     fileprivate func savePlayer(withDisplayName displayName: String, uuid: String) {
         PlayerService.saveNewPlayer(withDisplayName: displayName, uuid: uuid, success: { player in
-            print("Player: \(player)")
+            Player.currentPlayer = player
             self.delegate?.didLogInSuccessfully()
             self.delegate?.didStopLoading()
         }, failure: {
@@ -63,5 +63,6 @@ struct LoginViewModel {
             self.delegate?.didStopLoading()
         })
     }
+    
     
 }

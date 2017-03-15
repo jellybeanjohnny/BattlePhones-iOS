@@ -10,6 +10,9 @@ import Foundation
 import SwiftyJSON
 
 struct Player {
+    
+    static var currentPlayer: Player?
+    
     var displayName: String
     let uuid: String
     let attacks: [Attack]
