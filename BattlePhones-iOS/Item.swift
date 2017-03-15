@@ -7,7 +7,18 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 struct Item {
     
+}
+
+extension Item {
+    static func convert(usingJSON playerJSON: JSON) -> [Item] {
+        var items: [Item] = []
+        for itemJSON in playerJSON["items"].arrayValue {
+            //TODO: populate properties here
+        }
+        return items
+    }
 }

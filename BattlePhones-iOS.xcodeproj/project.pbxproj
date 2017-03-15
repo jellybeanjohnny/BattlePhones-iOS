@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C92E96CD1E78C0780033D198 /* PlayerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92E96CC1E78C0780033D198 /* PlayerService.swift */; };
 		C9339E081E78C3D5004F63A9 /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9339E071E78C3D5004F63A9 /* Routes.swift */; };
+		C9339E0A1E78E521004F63A9 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9339E091E78E521004F63A9 /* JSONParser.swift */; };
 		C94A4F3C1E776EEF0028E6D4 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94A4F3B1E776EEF0028E6D4 /* Player.swift */; };
 		C94A4F3E1E776EF60028E6D4 /* Attack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94A4F3D1E776EF60028E6D4 /* Attack.swift */; };
 		C94A4F401E776EFF0028E6D4 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94A4F3F1E776EFF0028E6D4 /* Item.swift */; };
@@ -33,6 +34,7 @@
 		2B56843CF61D2AD8850ADD7B /* Pods-BattlePhones-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BattlePhones-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-BattlePhones-iOS/Pods-BattlePhones-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		C92E96CC1E78C0780033D198 /* PlayerService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerService.swift; sourceTree = "<group>"; };
 		C9339E071E78C3D5004F63A9 /* Routes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Routes.swift; sourceTree = "<group>"; };
+		C9339E091E78E521004F63A9 /* JSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		C94A4F3B1E776EEF0028E6D4 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		C94A4F3D1E776EF60028E6D4 /* Attack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attack.swift; sourceTree = "<group>"; };
 		C94A4F3F1E776EFF0028E6D4 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				C9B86CF21E766E1100CC497E /* Login */,
 				C94A4F4D1E7790250028E6D4 /* Lobby */,
 				C9339E071E78C3D5004F63A9 /* Routes.swift */,
+				C9339E091E78E521004F63A9 /* JSONParser.swift */,
 			);
 			name = App;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 				C94A4F421E776F130028E6D4 /* PlayerStats.swift in Sources */,
 				C9A427AA1E7519E50019AD7B /* CloudKitService.swift in Sources */,
 				C94A4F3C1E776EEF0028E6D4 /* Player.swift in Sources */,
+				C9339E0A1E78E521004F63A9 /* JSONParser.swift in Sources */,
 				C9B86CF51E766E3400CC497E /* LoginViewController.swift in Sources */,
 				C9A427AF1E7534040019AD7B /* ViewController+Alert.swift in Sources */,
 				C94A4F3E1E776EF60028E6D4 /* Attack.swift in Sources */,

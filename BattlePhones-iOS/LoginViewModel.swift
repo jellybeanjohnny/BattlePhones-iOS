@@ -26,10 +26,13 @@ struct LoginViewModel {
     
     weak var delegate: LoginViewModelDelegate?
     
+    func removeWhiteSpace(displayName: String) -> String {
+        return displayName.replacingOccurrences(of: " ", with: "")
+    }
+    
     /// A display name is valid so long as it consists of no whitespace characters and is not an empty string
     func isValid(displayName: String) -> LoginValidationState {
-        let removedWhiteSpaceName = displayName.replacingOccurrences(of: " ", with: "")
-        if removedWhiteSpaceName.isEmpty {
+        if displayName.isEmpty {
             return .emptyText
         }
         return .valid
@@ -50,8 +53,8 @@ struct LoginViewModel {
     }
     
     fileprivate func savePlayer(withDisplayName displayName: String, uuid: String) {
-        PlayerService.saveNewPlayer(withDisplayName: displayName, uuid: uuid, success: { 
-            print("Success")
+        PlayerService.saveNewPlayer(withDisplayName: displayName, uuid: uuid, success: { player in
+            print("Player: \(player)")
             self.delegate?.didLogInSuccessfully()
             self.delegate?.didStopLoading()
         }, failure: {

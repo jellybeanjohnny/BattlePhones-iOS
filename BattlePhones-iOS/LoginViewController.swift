@@ -52,8 +52,10 @@ extension LoginViewController: UITextFieldDelegate {
         
         guard let displayName = textField.text else { return false }
         
-        if loginViewModel.isValid(displayName: displayName) == .valid {
-            loginViewModel.createPlayer(usingDisplayName: displayName)
+        let displayNameWithoutWhitespace = loginViewModel.removeWhiteSpace(displayName: displayName)
+        
+        if loginViewModel.isValid(displayName: displayNameWithoutWhitespace) == .valid {
+            loginViewModel.createPlayer(usingDisplayName: displayNameWithoutWhitespace)
             return true
         }
         return false
