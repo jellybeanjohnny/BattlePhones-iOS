@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C92E96CD1E78C0780033D198 /* PlayerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92E96CC1E78C0780033D198 /* PlayerService.swift */; };
+		C9339E081E78C3D5004F63A9 /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9339E071E78C3D5004F63A9 /* Routes.swift */; };
 		C94A4F3C1E776EEF0028E6D4 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94A4F3B1E776EEF0028E6D4 /* Player.swift */; };
 		C94A4F3E1E776EF60028E6D4 /* Attack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94A4F3D1E776EF60028E6D4 /* Attack.swift */; };
 		C94A4F401E776EFF0028E6D4 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94A4F3F1E776EFF0028E6D4 /* Item.swift */; };
@@ -31,6 +32,7 @@
 /* Begin PBXFileReference section */
 		2B56843CF61D2AD8850ADD7B /* Pods-BattlePhones-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BattlePhones-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-BattlePhones-iOS/Pods-BattlePhones-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		C92E96CC1E78C0780033D198 /* PlayerService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerService.swift; sourceTree = "<group>"; };
+		C9339E071E78C3D5004F63A9 /* Routes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Routes.swift; sourceTree = "<group>"; };
 		C94A4F3B1E776EEF0028E6D4 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		C94A4F3D1E776EF60028E6D4 /* Attack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attack.swift; sourceTree = "<group>"; };
 		C94A4F3F1E776EFF0028E6D4 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
@@ -100,19 +102,12 @@
 		C94A4F451E778E040028E6D4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C9D59E2F1E739B2A00A2DBF8 /* LaunchScreen.storyboard */,
 				C9A427AB1E7519ED0019AD7B /* BattlePhones-iOS.entitlements */,
 				C9D59E2D1E739B2A00A2DBF8 /* Assets.xcassets */,
 				C9D59E321E739B2A00A2DBF8 /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		C94A4F461E778E280028E6D4 /* Storyboard */ = {
-			isa = PBXGroup;
-			children = (
-				C9D59E2F1E739B2A00A2DBF8 /* LaunchScreen.storyboard */,
-			);
-			name = Storyboard;
 			sourceTree = "<group>";
 		};
 		C94A4F471E778E380028E6D4 /* Extensions */ = {
@@ -135,9 +130,12 @@
 		C98F3BD61E7769AB00BE54DE /* App */ = {
 			isa = PBXGroup;
 			children = (
+				C94A4F471E778E380028E6D4 /* Extensions */,
 				C92E96CB1E78C06A0033D198 /* Services */,
 				C94A4F381E776ECA0028E6D4 /* Models */,
+				C9B86CF21E766E1100CC497E /* Login */,
 				C94A4F4D1E7790250028E6D4 /* Lobby */,
+				C9339E071E78C3D5004F63A9 /* Routes.swift */,
 			);
 			name = App;
 			sourceTree = "<group>";
@@ -177,10 +175,7 @@
 				C9D59E261E739B2A00A2DBF8 /* AppDelegate.swift */,
 				C9D59E281E739B2A00A2DBF8 /* ViewController.swift */,
 				C98F3BD61E7769AB00BE54DE /* App */,
-				C9B86CF21E766E1100CC497E /* Login */,
 				C94A4F451E778E040028E6D4 /* Supporting Files */,
-				C94A4F461E778E280028E6D4 /* Storyboard */,
-				C94A4F471E778E380028E6D4 /* Extensions */,
 			);
 			path = "BattlePhones-iOS";
 			sourceTree = "<group>";
@@ -328,6 +323,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9D59E291E739B2A00A2DBF8 /* ViewController.swift in Sources */,
+				C9339E081E78C3D5004F63A9 /* Routes.swift in Sources */,
 				C94A4F401E776EFF0028E6D4 /* Item.swift in Sources */,
 				C94A4F441E777D940028E6D4 /* LoginViewModel.swift in Sources */,
 				C94A4F4F1E7799A80028E6D4 /* LoginStateManager.swift in Sources */,

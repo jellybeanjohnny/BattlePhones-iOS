@@ -63,10 +63,15 @@ extension LoginViewController: UITextFieldDelegate {
 //MARK: - ViewModel Delegate
 extension LoginViewController: LoginViewModelDelegate {
     
-    func playerDidLogIn() {
+    func didLogInSuccessfully() {
+        dismiss()
+    }
+    
+    func dismiss() {
         let lobbyViewController = LobbyViewController()
         lobbyViewController.modalTransitionStyle = .crossDissolve
         present(lobbyViewController, animated: true, completion: nil)
+ 
     }
     
     func didFailToLoadUUID(error: CloudKitError) {
@@ -74,5 +79,9 @@ extension LoginViewController: LoginViewModelDelegate {
         case .notAuthenticated: self.showAlert(title: "Uh oh!", message: "You're not signed into iCloud. Please go to Settings and sign in to your iCloud Account.")
         case .other: self.showAlert(title: "Uh oh!", message: "Something went wrong! Please try again")
         }
+    }
+    
+    func didFailToSavePlayer() {
+        showAlert(title: "Uh oh!", message: "Something went wrong! Please try again")
     }
 }

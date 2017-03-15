@@ -15,8 +15,9 @@ enum LoginValidationState {
 }
 
 protocol LoginViewModelDelegate: class {
-    func playerDidLogIn()
+    func didLogInSuccessfully()
     func didFailToLoadUUID(error: CloudKitError)
+    func didFailToSavePlayer()
 }
 
 struct LoginViewModel {
@@ -44,9 +45,11 @@ struct LoginViewModel {
     }
     
     fileprivate func savePlayer(withDisplayName displayName: String, uuid: String) {
-        PlayerService.saveNewPlayer(withDisplayName: displayName, uuid: uuid) { 
-            self.delegate?.playerDidLogIn()
-        }
+        PlayerService.saveNewPlayer(withDisplayName: displayName, uuid: uuid, success: { 
+            print("Success")
+        }, failure: {
+            
+        })
     }
     
 }
