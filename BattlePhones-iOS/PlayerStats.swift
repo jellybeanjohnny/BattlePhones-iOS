@@ -42,3 +42,29 @@ extension PlayerStats {
     }
 }
 
+extension PlayerStats: PropertyListConvertible {
+    init?(propertyListRepresentation: NSDictionary) {
+        guard let rank = propertyListRepresentation["rank"] as? Int,
+              let maxHealth = propertyListRepresentation["maxHealth"] as? Float,
+              let maxEnergy = propertyListRepresentation["maxEnergy"] as? Float,
+              let currentHealth = propertyListRepresentation["currentHealth"] as? Float,
+              let currentEnergy = propertyListRepresentation["currentEnergy"] as? Float,
+            let experiencePoints = propertyListRepresentation["experiencePoints"] as? Float else {
+                return nil
+        }
+        self = PlayerStats(rank: rank, maxHealth: maxHealth, maxEnergy: maxEnergy, currentHealth: currentHealth, currentEnergy: currentEnergy, experiencePoints: experiencePoints)
+    }
+    
+    func propertyListRepresentation() -> NSDictionary {
+        let dict: NSDictionary = [
+            "rank" : rank,
+            "maxHealth" : maxHealth,
+            "maxEnergy" : maxEnergy,
+            "currentHealth" : currentHealth,
+            "currentEnergy" : currentEnergy,
+            "experiencePoints" : experiencePoints
+        ]
+        return dict
+    }
+}
+

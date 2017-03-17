@@ -10,7 +10,8 @@ import Foundation
 import SwiftyJSON
 
 struct Item {
-    
+    let name: String
+    let itemDescription: String
 }
 
 extension Item {
@@ -18,7 +19,30 @@ extension Item {
         var items: [Item] = []
         for itemJSON in playerJSON["items"].arrayValue {
             //TODO: populate properties here
+            let name = itemJSON["name"].stringValue
+            let description = itemJSON["itemDescription"].stringValue
+            let item = Item(name: name, itemDescription: description)
+            items.append(item)
         }
         return items
+    }
+}
+
+extension Item: PropertyListConvertible {
+    init?(propertyListRepresentation: NSDictionary) {
+        guard let name = propertyListRepresentation["name"] as? String,
+            let description = propertyListRepresentation["itemDescription"] as? String else {
+                return nil
+        }
+        self = Item(name: name, itemDescription: description)
+    }
+    
+    func propertyListRepresentation() -> NSDictionary {
+        let representation: NSDictionary = [
+            "name" : name,
+            "itemDescription" : itemDescription
+        ]
+        
+        return representation
     }
 }

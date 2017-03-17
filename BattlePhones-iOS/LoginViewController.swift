@@ -71,10 +71,11 @@ extension LoginViewController: LoginViewModelDelegate {
     
     func dismiss() {
         let lobbyViewController = LobbyViewController()
-        lobbyViewController.modalTransitionStyle = .crossDissolve
-        present(lobbyViewController, animated: true, completion: nil)
- 
+        let navigationController = UINavigationController(rootViewController: lobbyViewController)
+        navigationController.modalTransitionStyle = .crossDissolve
+        present(navigationController, animated: true, completion: nil)
     }
+    
     
     func didFailToLoadUUID(error: CloudKitError) {
         switch error {

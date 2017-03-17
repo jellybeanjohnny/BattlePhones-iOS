@@ -17,7 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
         setRootViewController()
-    
         return true
     }
     
@@ -27,7 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if LoginStateManager.shouldShowLoginScreen() {
             rootViewController = LoginViewController()
         } else {
-            rootViewController = LobbyViewController()
+            let lobbyViewController = LobbyViewController()
+            let navigationController = UINavigationController(rootViewController: lobbyViewController)
+            rootViewController = navigationController
         }
         
         window?.rootViewController = rootViewController

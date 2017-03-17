@@ -18,6 +18,7 @@ struct Attack {
     var description: String {
         return "name: \(name)\ndamageOutput: \(damageOutput)\nenergyCost: \(energyCost)\nactionDescription: \(actionDescription)"
     }
+    
 }
 
 extension Attack {
@@ -34,3 +35,30 @@ extension Attack {
         return attacks
     }
 }
+
+extension Attack: PropertyListConvertible {
+    
+    func propertyListRepresentation() -> NSDictionary {
+        let representation: NSDictionary = [
+            "name" : name,
+            "damageOutput" : damageOutput,
+            "energyCost" : energyCost,
+            "actionDescription" : actionDescription
+        ]
+    
+        return representation
+    }
+    
+    init?(propertyListRepresentation: NSDictionary) {
+        guard let name = propertyListRepresentation["name"] as? String,
+        let damageOutput = propertyListRepresentation["damageOutput"] as? Float,
+        let energyCost = propertyListRepresentation["energyCost"] as? Float,
+        let actionDescription = propertyListRepresentation["actionDescription"] as? String else {
+            return nil
+        }
+        
+        self = Attack(name: name, damageOutput: damageOutput, energyCost: energyCost, actionDescription: actionDescription)
+    }
+    
+}
+

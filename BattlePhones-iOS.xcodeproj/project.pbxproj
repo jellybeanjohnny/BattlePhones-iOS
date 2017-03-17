@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C90960741E7B7644002A2803 /* PropertyListConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90960731E7B7644002A2803 /* PropertyListConvertible.swift */; };
 		C92E96CD1E78C0780033D198 /* PlayerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92E96CC1E78C0780033D198 /* PlayerService.swift */; };
 		C9339E081E78C3D5004F63A9 /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9339E071E78C3D5004F63A9 /* Routes.swift */; };
 		C9339E0A1E78E521004F63A9 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9339E091E78E521004F63A9 /* JSONParser.swift */; };
@@ -32,6 +33,7 @@
 
 /* Begin PBXFileReference section */
 		2B56843CF61D2AD8850ADD7B /* Pods-BattlePhones-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BattlePhones-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-BattlePhones-iOS/Pods-BattlePhones-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		C90960731E7B7644002A2803 /* PropertyListConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertyListConvertible.swift; sourceTree = "<group>"; };
 		C92E96CC1E78C0780033D198 /* PlayerService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerService.swift; sourceTree = "<group>"; };
 		C9339E071E78C3D5004F63A9 /* Routes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Routes.swift; sourceTree = "<group>"; };
 		C9339E091E78E521004F63A9 /* JSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				C94A4F4D1E7790250028E6D4 /* Lobby */,
 				C9339E071E78C3D5004F63A9 /* Routes.swift */,
 				C9339E091E78E521004F63A9 /* JSONParser.swift */,
+				C90960731E7B7644002A2803 /* PropertyListConvertible.swift */,
 			);
 			name = App;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				C9339E081E78C3D5004F63A9 /* Routes.swift in Sources */,
 				C94A4F401E776EFF0028E6D4 /* Item.swift in Sources */,
 				C94A4F441E777D940028E6D4 /* LoginViewModel.swift in Sources */,
+				C90960741E7B7644002A2803 /* PropertyListConvertible.swift in Sources */,
 				C94A4F4F1E7799A80028E6D4 /* LoginStateManager.swift in Sources */,
 				C94A4F4B1E778FDC0028E6D4 /* LobbyViewController.swift in Sources */,
 				C9D59E271E739B2A00A2DBF8 /* AppDelegate.swift in Sources */,

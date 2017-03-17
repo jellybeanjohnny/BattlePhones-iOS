@@ -24,8 +24,7 @@ class LobbyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Lobby"
+        print(Player.currentPlayer())
     }
-    
-    
-    
 }
