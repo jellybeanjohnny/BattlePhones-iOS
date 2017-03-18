@@ -15,6 +15,7 @@ enum Path: String {
 enum Base: String {
     case baseLocalhostHTTP = "http://localhost:8080/"
     case baseLocalhostWebSocket = "ws://localhost:8080/"
+    case baseRemoteHTTP = "https://battlephones-server.herokuapp.com/"
     case baseRemoteWebSocket = "ws://battlephones-server.herokuapp.com/"
 }
 

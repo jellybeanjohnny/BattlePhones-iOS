@@ -60,6 +60,7 @@ class LobbyViewController: UIViewController {
     }
     
     @IBAction func joinButtonPressed(_ sender: Any) {
+        ConnectionManager.sharedInstance.connect()
     }
     
 }

@@ -8,6 +8,7 @@
 
 import Foundation
 import Starscream
+import SwiftyJSON
 
 
 protocol ConnectionManagerDelegate {
@@ -19,7 +20,7 @@ class ConnectionManager {
     
     static let sharedInstance = ConnectionManager()
     
-    fileprivate let socket = WebSocket(url: URL(string: Routes.builder(usingBase: .baseLocalhostWebSocket, path: nil))!)
+    fileprivate let socket = WebSocket(url: URL(string: Routes.builder(usingBase: .baseRemoteWebSocket, path: nil))!)
     
     enum EventType: String {
         case playerJoined
@@ -29,6 +30,30 @@ class ConnectionManager {
         // Made private to prevent clients from calling init
     }
     
+    //MARK: - Private
+    
+    fileprivate func sendPlayerInfoToServer() {
+        guard let currentPlayer = Player.currentPlayer() else { return }
+        let infoDict = [
+            "displayName" : currentPlayer.displayName,
+            "uuid"        : currentPlayer.uuid,
+            "eventType"   : EventType.playerJoined.rawValue
+        ]
+        write(usingInfo: infoDict)
+    }
+    
+    fileprivate func write(usingInfo info: [String : String]) {
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: info, options: .prettyPrinted)
+            let jsonString = String(data: jsonData, encoding: .utf8)!
+            socket.write(string: jsonString)
+        } catch {
+            print(error.localizedDescription)
+        }
+        
+    }
+    
+    //MARK: - Public
     func connect() {
         socket.delegate = self
         socket.connect()
@@ -45,7 +70,7 @@ class ConnectionManager {
 extension ConnectionManager: WebSocketDelegate {
     
     func websocketDidConnect(socket: WebSocket) {
-        //TODO: Stub
+        sendPlayerInfoToServer()
     }
     
     func websocketDidReceiveData(socket: WebSocket, data: Data) {
