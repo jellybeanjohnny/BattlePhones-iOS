@@ -28,18 +28,9 @@
 		C9D59E291E739B2A00A2DBF8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D59E281E739B2A00A2DBF8 /* ViewController.swift */; };
 		C9D59E2E1E739B2A00A2DBF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9D59E2D1E739B2A00A2DBF8 /* Assets.xcassets */; };
 		C9D59E311E739B2A00A2DBF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9D59E2F1E739B2A00A2DBF8 /* LaunchScreen.storyboard */; };
-		C9D5D9B81E7C4BD200839F02 /* game_over.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C9D5D9B71E7C4BC600839F02 /* game_over.ttf */; };
-		C9D5D9BA1E7C4C2900839F02 /* Pokemon X and Y.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C9D5D9B91E7C4C2900839F02 /* Pokemon X and Y.ttf */; };
-		C9D5D9BC1E7C4C3400839F02 /* zeldadxt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C9D5D9BB1E7C4C3400839F02 /* zeldadxt.ttf */; };
 		C9D5D9BE1E7C4C8200839F02 /* kenvector_future.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C9D5D9BD1E7C4C8200839F02 /* kenvector_future.ttf */; };
-		C9D5D9C01E7C4D1200839F02 /* block.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C9D5D9BF1E7C4D1200839F02 /* block.ttf */; };
-		C9D5D9C31E7C4D8600839F02 /* smbfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C9D5D9C11E7C4D8600839F02 /* smbfont.ttf */; };
-		C9D5D9C41E7C4D8600839F02 /* SuperMario256.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C9D5D9C21E7C4D8600839F02 /* SuperMario256.ttf */; };
-		C9D5D9C61E7C4D9300839F02 /* The Wild Breath of Zelda.otf in Resources */ = {isa = PBXBuildFile; fileRef = C9D5D9C51E7C4D9300839F02 /* The Wild Breath of Zelda.otf */; };
 		C9D5D9C91E7C53C300839F02 /* LobbyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D5D9C71E7C53C300839F02 /* LobbyTableViewCell.swift */; };
 		C9D5D9CA1E7C53C300839F02 /* LobbyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9D5D9C81E7C53C300839F02 /* LobbyTableViewCell.xib */; };
-		C9D5D9CC1E7C591400839F02 /* I-pixel-u.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C9D5D9CB1E7C591400839F02 /* I-pixel-u.ttf */; };
-		C9D5D9CE1E7C599400839F02 /* Pixeled.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C9D5D9CD1E7C599400839F02 /* Pixeled.ttf */; };
 		C9D5D9D01E7C59E200839F02 /* kenvector_future_thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C9D5D9CF1E7C59E200839F02 /* kenvector_future_thin.ttf */; };
 		C9D5D9D31E7CA83700839F02 /* ConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D5D9D21E7CA83700839F02 /* ConnectionManager.swift */; };
 		DD70A9E23AFAC071826EC95B /* Pods_BattlePhones_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF87F0528AA797E975D6DDB8 /* Pods_BattlePhones_iOS.framework */; };
@@ -71,18 +62,9 @@
 		C9D59E2D1E739B2A00A2DBF8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C9D59E301E739B2A00A2DBF8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C9D59E321E739B2A00A2DBF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C9D5D9B71E7C4BC600839F02 /* game_over.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = game_over.ttf; sourceTree = "<group>"; };
-		C9D5D9B91E7C4C2900839F02 /* Pokemon X and Y.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pokemon X and Y.ttf"; sourceTree = "<group>"; };
-		C9D5D9BB1E7C4C3400839F02 /* zeldadxt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = zeldadxt.ttf; sourceTree = "<group>"; };
 		C9D5D9BD1E7C4C8200839F02 /* kenvector_future.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = kenvector_future.ttf; sourceTree = "<group>"; };
-		C9D5D9BF1E7C4D1200839F02 /* block.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = block.ttf; sourceTree = "<group>"; };
-		C9D5D9C11E7C4D8600839F02 /* smbfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = smbfont.ttf; sourceTree = "<group>"; };
-		C9D5D9C21E7C4D8600839F02 /* SuperMario256.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SuperMario256.ttf; sourceTree = "<group>"; };
-		C9D5D9C51E7C4D9300839F02 /* The Wild Breath of Zelda.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "The Wild Breath of Zelda.otf"; sourceTree = "<group>"; };
 		C9D5D9C71E7C53C300839F02 /* LobbyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LobbyTableViewCell.swift; sourceTree = "<group>"; };
 		C9D5D9C81E7C53C300839F02 /* LobbyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LobbyTableViewCell.xib; sourceTree = "<group>"; };
-		C9D5D9CB1E7C591400839F02 /* I-pixel-u.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "I-pixel-u.ttf"; sourceTree = "<group>"; };
-		C9D5D9CD1E7C599400839F02 /* Pixeled.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pixeled.ttf; sourceTree = "<group>"; };
 		C9D5D9CF1E7C59E200839F02 /* kenvector_future_thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = kenvector_future_thin.ttf; sourceTree = "<group>"; };
 		C9D5D9D21E7CA83700839F02 /* ConnectionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionManager.swift; sourceTree = "<group>"; };
 		CF87F0528AA797E975D6DDB8 /* Pods_BattlePhones_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BattlePhones_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -230,16 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				C9D5D9CF1E7C59E200839F02 /* kenvector_future_thin.ttf */,
-				C9D5D9CD1E7C599400839F02 /* Pixeled.ttf */,
-				C9D5D9CB1E7C591400839F02 /* I-pixel-u.ttf */,
-				C9D5D9C51E7C4D9300839F02 /* The Wild Breath of Zelda.otf */,
-				C9D5D9C11E7C4D8600839F02 /* smbfont.ttf */,
-				C9D5D9C21E7C4D8600839F02 /* SuperMario256.ttf */,
-				C9D5D9BF1E7C4D1200839F02 /* block.ttf */,
 				C9D5D9BD1E7C4C8200839F02 /* kenvector_future.ttf */,
-				C9D5D9BB1E7C4C3400839F02 /* zeldadxt.ttf */,
-				C9D5D9B91E7C4C2900839F02 /* Pokemon X and Y.ttf */,
-				C9D5D9B71E7C4BC600839F02 /* game_over.ttf */,
 			);
 			name = Fonts;
 			sourceTree = "<group>";
@@ -332,22 +305,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9D5D9BC1E7C4C3400839F02 /* zeldadxt.ttf in Resources */,
-				C9D5D9CC1E7C591400839F02 /* I-pixel-u.ttf in Resources */,
 				C9D5D9D01E7C59E200839F02 /* kenvector_future_thin.ttf in Resources */,
 				C9B86CF61E766E3400CC497E /* LoginViewController.xib in Resources */,
-				C9D5D9C01E7C4D1200839F02 /* block.ttf in Resources */,
 				C9D5D9CA1E7C53C300839F02 /* LobbyTableViewCell.xib in Resources */,
 				C9D59E311E739B2A00A2DBF8 /* LaunchScreen.storyboard in Resources */,
 				C9D5D9BE1E7C4C8200839F02 /* kenvector_future.ttf in Resources */,
-				C9D5D9BA1E7C4C2900839F02 /* Pokemon X and Y.ttf in Resources */,
 				C94A4F4C1E778FDC0028E6D4 /* LobbyViewController.xib in Resources */,
-				C9D5D9C41E7C4D8600839F02 /* SuperMario256.ttf in Resources */,
-				C9D5D9B81E7C4BD200839F02 /* game_over.ttf in Resources */,
-				C9D5D9C31E7C4D8600839F02 /* smbfont.ttf in Resources */,
 				C9D59E2E1E739B2A00A2DBF8 /* Assets.xcassets in Resources */,
-				C9D5D9CE1E7C599400839F02 /* Pixeled.ttf in Resources */,
-				C9D5D9C61E7C4D9300839F02 /* The Wild Breath of Zelda.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
