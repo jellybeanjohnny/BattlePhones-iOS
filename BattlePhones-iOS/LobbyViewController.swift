@@ -10,6 +10,31 @@ import UIKit
 
 class LobbyViewController: UIViewController {
     
+    @IBOutlet weak var tableView: UITableView!
+
+    let dummyData = [
+        "conspiracycrisp",
+        "hossagain",
+        "cabinetcorazon",
+        "yellsharp",
+        "elderflowerfits",
+        "buyselladsyeoman",
+        "cavaliertranslator",
+        "worthlessodiferous",
+        "attractbarrisdale",
+        "friendlybed",
+        "tenderriding",
+        "molalitysamantha",
+        "beckarain",
+        "zoeacrid",
+        "rackscuts",
+        "butteredrafter",
+        "beaconswatermelon",
+        "unsmokedjasmine",
+        "auditilmenite",
+        "fillerpumlumon"
+    ]
+    
     convenience init() {
         self.init(nibName: String(describing: LobbyViewController.self), bundle: Bundle.main)
     }
@@ -25,6 +50,36 @@ class LobbyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Lobby"
-        print(Player.currentPlayer())
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        let cellNib = UINib(nibName: String(describing: LobbyTableViewCell.self), bundle: Bundle.main)
+        tableView.register(cellNib, forCellReuseIdentifier: "LobbyCell")
+        
+        print(Player.currentPlayer() ?? "nope")
     }
+    
+    @IBAction func joinButtonPressed(_ sender: Any) {
+    }
+    
+}
+
+extension LobbyViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dummyData.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "LobbyCell", for: indexPath) as? LobbyTableViewCell else {
+            return UITableViewCell()
+        }
+        
+        cell.displayNameLabel.text = dummyData[indexPath.row]
+        
+        return cell
+    }
+}
+
+extension LobbyViewController: UITableViewDelegate {
+    
 }

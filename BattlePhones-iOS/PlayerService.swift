@@ -13,7 +13,7 @@ struct PlayerService {
     
     static func saveNewPlayer(withDisplayName displayName: String, uuid: String, success: @escaping (Player) -> Void, failure: @escaping () -> Void) {
         
-        let urlString = Routes.builder(usingBase: .baseHTTP, path: .player)
+        let urlString = Routes.builder(usingBase: .baseLocalhostHTTP, path: .player)
         let parameters = ["displayName" : displayName, "uuid" : uuid]
         
         Alamofire.request(urlString, method: .post, parameters: parameters).validate().responseJSON { (response) in

@@ -4,7 +4,7 @@
 //
 //  Created by Matt Amerige on 3/16/17.
 //  Copyright © 2017 Matt Amerige. All rights reserved.
-//
+// http://isame7.github.io/blog/2016/03/16/persisting-structs-in-swift/
 
 import Foundation
 

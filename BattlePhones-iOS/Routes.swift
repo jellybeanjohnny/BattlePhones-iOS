@@ -13,7 +13,9 @@ enum Path: String {
 }
 
 enum Base: String {
-    case baseHTTP = "http://localhost:8080/"
+    case baseLocalhostHTTP = "http://localhost:8080/"
+    case baseLocalhostWebSocket = "ws://localhost:8080/"
+    case baseRemoteWebSocket = "ws://battlephones-server.herokuapp.com/"
 }
 
 struct Routes {
