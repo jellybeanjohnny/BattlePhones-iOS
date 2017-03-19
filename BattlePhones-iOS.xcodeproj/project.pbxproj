@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C9017B001E7E5A36004298BD /* LobbyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9017AFF1E7E5A36004298BD /* LobbyViewModel.swift */; };
 		C90960741E7B7644002A2803 /* PropertyListConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90960731E7B7644002A2803 /* PropertyListConvertible.swift */; };
 		C92E96CD1E78C0780033D198 /* PlayerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92E96CC1E78C0780033D198 /* PlayerService.swift */; };
 		C9339E081E78C3D5004F63A9 /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9339E071E78C3D5004F63A9 /* Routes.swift */; };
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		2B56843CF61D2AD8850ADD7B /* Pods-BattlePhones-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BattlePhones-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-BattlePhones-iOS/Pods-BattlePhones-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		C9017AFF1E7E5A36004298BD /* LobbyViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LobbyViewModel.swift; sourceTree = "<group>"; };
 		C90960731E7B7644002A2803 /* PropertyListConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertyListConvertible.swift; sourceTree = "<group>"; };
 		C92E96CC1E78C0780033D198 /* PlayerService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerService.swift; sourceTree = "<group>"; };
 		C9339E071E78C3D5004F63A9 /* Routes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Routes.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				C94A4F4A1E778FDC0028E6D4 /* LobbyViewController.xib */,
 				C9D5D9C71E7C53C300839F02 /* LobbyTableViewCell.swift */,
 				C9D5D9C81E7C53C300839F02 /* LobbyTableViewCell.xib */,
+				C9017AFF1E7E5A36004298BD /* LobbyViewModel.swift */,
 			);
 			name = Lobby;
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 				C9D5D9C91E7C53C300839F02 /* LobbyTableViewCell.swift in Sources */,
 				C94A4F4B1E778FDC0028E6D4 /* LobbyViewController.swift in Sources */,
 				C9D59E271E739B2A00A2DBF8 /* AppDelegate.swift in Sources */,
+				C9017B001E7E5A36004298BD /* LobbyViewModel.swift in Sources */,
 				C92E96CD1E78C0780033D198 /* PlayerService.swift in Sources */,
 				C94A4F421E776F130028E6D4 /* PlayerStats.swift in Sources */,
 				C9A427AA1E7519E50019AD7B /* CloudKitService.swift in Sources */,

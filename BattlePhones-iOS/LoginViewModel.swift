@@ -22,7 +22,7 @@ protocol LoginViewModelDelegate: class {
     func didStopLoading()
 }
 
-struct LoginViewModel {
+class LoginViewModel {
     
     weak var delegate: LoginViewModelDelegate?
     

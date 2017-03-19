@@ -10,31 +10,10 @@ import UIKit
 
 class LobbyViewController: UIViewController {
     
+    var lobbyViewModel = LobbyViewModel()
+    
     @IBOutlet weak var tableView: UITableView!
 
-    let dummyData = [
-        "conspiracycrisp",
-        "hossagain",
-        "cabinetcorazon",
-        "yellsharp",
-        "elderflowerfits",
-        "buyselladsyeoman",
-        "cavaliertranslator",
-        "worthlessodiferous",
-        "attractbarrisdale",
-        "friendlybed",
-        "tenderriding",
-        "molalitysamantha",
-        "beckarain",
-        "zoeacrid",
-        "rackscuts",
-        "butteredrafter",
-        "beaconswatermelon",
-        "unsmokedjasmine",
-        "auditilmenite",
-        "fillerpumlumon"
-    ]
-    
     convenience init() {
         self.init(nibName: String(describing: LobbyViewController.self), bundle: Bundle.main)
     }
@@ -49,25 +28,35 @@ class LobbyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ConnectionManager.sharedInstance.delegate = self
-        ConnectionManager.sharedInstance.connect()
+        
         title = "Lobby"
+        
+        setDelegates()
+        registerNibs()
+        lobbyViewModel.viewDidLoad()
+    }
+    
+    func setDelegates() {
         tableView.delegate = self
         tableView.dataSource = self
-        
+        lobbyViewModel.delegate = self
+    }
+    
+    func registerNibs() {
         let cellNib = UINib(nibName: String(describing: LobbyTableViewCell.self), bundle: Bundle.main)
         tableView.register(cellNib, forCellReuseIdentifier: "LobbyCell")
     }
     
     @IBAction func joinButtonPressed(_ sender: Any) {
-        ConnectionManager.sharedInstance.joinLobby()
+        lobbyViewModel.joinLobby()
     }
     
 }
 
+//MARK: - TableView
 extension LobbyViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dummyData.count
+        return lobbyViewModel.activePlayers.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -75,7 +64,7 @@ extension LobbyViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
-        cell.displayNameLabel.text = dummyData[indexPath.row]
+        cell.displayNameLabel.text = lobbyViewModel.displayName(forRowAtIndexPath: indexPath)
         
         return cell
     }
@@ -85,9 +74,9 @@ extension LobbyViewController: UITableViewDelegate {
     
 }
 
-extension LobbyViewController: ConnectionManagerDelegate {
-    
-    func didReceive(activePlayersInfo playerInfo: [[String : String]]) {
-        print("LobbyViewController playerInfo: \(playerInfo)")
+//MARK: - LobbyViewModel Delegate
+extension LobbyViewController: LobbyViewModelDelegate {
+    func refresh() {
+        tableView.reloadData()
     }
 }
