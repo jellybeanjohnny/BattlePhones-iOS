@@ -109,15 +109,9 @@ extension ConnectionManager: WebSocketDelegate {
     }
     
     func handleActivePlayers(json: JSON) {
-        let playerInfoArray = parseActivePlayers(json: json)
+        let playerInfoArray = JSONParser.parse(ActivePlayersJSON: json)
         delegate?.didReceive(activePlayersInfo: playerInfoArray)
     }
     
-    func parseActivePlayers(json: JSON) -> [[String : String]] {
-        let info = json["activePlayers"].arrayValue.map {
-            return ["uuid" : $0["uuid"].stringValue, "displayName" : $0["displayName"].stringValue]
-        }
-        return info
-    }
     
 }

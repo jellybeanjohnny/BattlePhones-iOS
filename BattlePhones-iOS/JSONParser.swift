@@ -23,4 +23,11 @@ struct JSONParser {
         
         return player
     }
+    
+    static func parse(ActivePlayersJSON json: JSON) -> [[String : String]] {
+        let info = json["activePlayers"].arrayValue.map {
+            return ["uuid" : $0["uuid"].stringValue, "displayName" : $0["displayName"].stringValue]
+        }
+        return info
+    }
 }
