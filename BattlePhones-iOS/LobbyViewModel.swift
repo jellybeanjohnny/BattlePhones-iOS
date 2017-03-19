@@ -33,6 +33,10 @@ class LobbyViewModel {
         return displayName
     }
     
+    func didSelectRow(atIndexPath indexPath: IndexPath) {
+        
+    }
+    
     
     fileprivate func startConnection() {
         ConnectionManager.sharedInstance.delegate = self
@@ -44,7 +48,17 @@ class LobbyViewModel {
 extension LobbyViewModel: ConnectionManagerDelegate {
     
     func didReceive(activePlayersInfo playerInfo: [[String : String]]) {
-        activePlayers = playerInfo
+        filterAndSetActivePlayers(playerInfo: playerInfo)
         delegate?.refresh()
+    }
+    
+    func filterAndSetActivePlayers(playerInfo: [[String : String]]) {
+        guard let currentPlayerUUID =  Player.currentPlayer()?.uuid else { return }
+        activePlayers = playerInfo.filter{
+            if let uuid = $0["uuid"] {
+                return uuid != currentPlayerUUID
+            }
+            return false
+        }
     }
 }

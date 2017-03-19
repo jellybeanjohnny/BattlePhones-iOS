@@ -71,7 +71,9 @@ extension LobbyViewController: UITableViewDataSource {
 }
 
 extension LobbyViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        lobbyViewModel.didSelectRow(atIndexPath: indexPath)
+    }
 }
 
 //MARK: - LobbyViewModel Delegate
