@@ -22,7 +22,7 @@ struct Player {
         return "displayName: \(displayName)\nUUID: \(uuid)\nattacks: \(attacks)\nitems: \(items)\nstats: \(stats)\ngold: \(gold)"
     }
     
-    static var currentPlayer: Player {
+    static var currentPlayer: Player? {
         if let url  = Player.playerURL(),
             let playerData = try? Data(contentsOf: url),
             let playerDict = NSKeyedUnarchiver.unarchiveObject(with: playerData) as? NSDictionary,
