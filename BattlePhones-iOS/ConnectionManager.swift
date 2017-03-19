@@ -11,8 +11,12 @@ import Starscream
 import SwiftyJSON
 
 
-protocol ConnectionManagerDelegate {
-    
+protocol ConnectionManagerDelegate: class {
+    /**
+     Called when the client receives the list of currently active players.
+     - parameter playerInfo: An array containing dictionaries of player displayNames and UUIDs
+     */
+    func didReceive(activePlayersInfo playerInfo: [[String : String]])
 }
 
 /// Manages everything concerning websockets! Including connecting, disconnecting, and sending/receiving messages
@@ -20,11 +24,14 @@ class ConnectionManager {
     
     static let sharedInstance = ConnectionManager()
     
+    weak var delegate: ConnectionManagerDelegate?
+    
     fileprivate let socket = WebSocket(url: URL(string: Routes.builder(usingBase: .ngrokWebSocket, path: nil))!)
     
     enum EventType: String {
         case playerJoinInactive
         case playerJoinActive
+        case activePlayers
     }
     
     fileprivate init() {
@@ -81,16 +88,36 @@ extension ConnectionManager: WebSocketDelegate {
     }
     
     func websocketDidReceiveData(socket: WebSocket, data: Data) {
-        let json = JSON(data)
-        print("Recevied JSON: \(json)")
+        print("Received Data: \(data)")
     }
     
     func websocketDidDisconnect(socket: WebSocket, error: NSError?) {
-        //TODO: Stub
+        print("Socket disconnected")
     }
     
     func websocketDidReceiveMessage(socket: WebSocket, text: String) {
         print("Received message from server: \(text)")
+        
+        let json = JSON(parseJSON: text)
+        let eventType = json["eventType"].stringValue
+        
+        if eventType == EventType.activePlayers.rawValue {
+            handleActivePlayers(json: json)
+        } else {
+            // other events
+        }
+    }
+    
+    func handleActivePlayers(json: JSON) {
+        let playerInfoArray = parseActivePlayers(json: json)
+        delegate?.didReceive(activePlayersInfo: playerInfoArray)
+    }
+    
+    func parseActivePlayers(json: JSON) -> [[String : String]] {
+        let info = json["activePlayers"].arrayValue.map {
+            return ["uuid" : $0["uuid"].stringValue, "displayName" : $0["displayName"].stringValue]
+        }
+        return info
     }
     
 }

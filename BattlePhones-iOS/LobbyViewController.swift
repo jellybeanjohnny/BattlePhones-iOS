@@ -49,6 +49,7 @@ class LobbyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        ConnectionManager.sharedInstance.delegate = self
         ConnectionManager.sharedInstance.connect()
         title = "Lobby"
         tableView.delegate = self
@@ -82,4 +83,11 @@ extension LobbyViewController: UITableViewDataSource {
 
 extension LobbyViewController: UITableViewDelegate {
     
+}
+
+extension LobbyViewController: ConnectionManagerDelegate {
+    
+    func didReceive(activePlayersInfo playerInfo: [[String : String]]) {
+        print("LobbyViewController playerInfo: \(playerInfo)")
+    }
 }
