@@ -53,7 +53,7 @@ extension LobbyViewModel: ConnectionManagerDelegate {
     }
     
     func filterAndSetActivePlayers(playerInfo: [[String : String]]) {
-        guard let currentPlayerUUID =  Player.currentPlayer()?.uuid else { return }
+        let currentPlayerUUID =  Player.currentPlayer.uuid
         activePlayers = playerInfo.filter{
             if let uuid = $0["uuid"] {
                 return uuid != currentPlayerUUID

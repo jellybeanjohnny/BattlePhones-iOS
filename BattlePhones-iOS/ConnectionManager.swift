@@ -41,7 +41,7 @@ class ConnectionManager {
     //MARK: - Private
     
     fileprivate func sendInitialConnectionToServer() {
-        guard let currentPlayer = Player.currentPlayer() else { return }
+        let currentPlayer = Player.currentPlayer
         let infoDict = [
             "displayName" : currentPlayer.displayName,
             "uuid"        : currentPlayer.uuid,

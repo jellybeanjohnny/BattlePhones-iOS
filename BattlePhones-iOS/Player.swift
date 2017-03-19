@@ -22,6 +22,18 @@ struct Player {
         return "displayName: \(displayName)\nUUID: \(uuid)\nattacks: \(attacks)\nitems: \(items)\nstats: \(stats)\ngold: \(gold)"
     }
     
+    static var currentPlayer: Player {
+        if let url  = Player.playerURL(),
+            let playerData = try? Data(contentsOf: url),
+            let playerDict = NSKeyedUnarchiver.unarchiveObject(with: playerData) as? NSDictionary,
+            let player = Player(propertyListRepresentation: playerDict) {
+            
+            return player
+        }
+        let nullStats = PlayerStats(rank: 0, maxHealth: 0, maxEnergy: 0, currentHealth: 0, currentEnergy: 0, experiencePoints: 0)
+        return Player(displayName: "", uuid: "", attacks: [], items: [], stats: nullStats, gold: 0)
+    }
+    
     static func save(player: Player) {
         
         let playerDict = player.propertyListRepresentation()
@@ -30,19 +42,9 @@ struct Player {
             try? playerData.write(to: url)
         }
     }
+  
+
     
-    static func currentPlayer() -> Player? {
-        
-        if let url  = Player.playerURL(),
-            let playerData = try? Data(contentsOf: url),
-            let playerDict = NSKeyedUnarchiver.unarchiveObject(with: playerData) as? NSDictionary,
-            let player = Player(propertyListRepresentation: playerDict) {
-            
-            return player
-        }
-        
-        return nil
-    }
     
    fileprivate static func playerURL() -> URL? {
         let fileManager = FileManager.default
