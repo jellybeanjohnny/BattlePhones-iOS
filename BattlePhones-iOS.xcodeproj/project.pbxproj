@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C9017B001E7E5A36004298BD /* LobbyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9017AFF1E7E5A36004298BD /* LobbyViewModel.swift */; };
+		C9017B021E7F0D7F004298BD /* PlayerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9017B011E7F0D7F004298BD /* PlayerInfo.swift */; };
 		C90960741E7B7644002A2803 /* PropertyListConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90960731E7B7644002A2803 /* PropertyListConvertible.swift */; };
 		C92E96CD1E78C0780033D198 /* PlayerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92E96CC1E78C0780033D198 /* PlayerService.swift */; };
 		C9339E081E78C3D5004F63A9 /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9339E071E78C3D5004F63A9 /* Routes.swift */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		2B56843CF61D2AD8850ADD7B /* Pods-BattlePhones-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BattlePhones-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-BattlePhones-iOS/Pods-BattlePhones-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		C9017AFF1E7E5A36004298BD /* LobbyViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LobbyViewModel.swift; sourceTree = "<group>"; };
+		C9017B011E7F0D7F004298BD /* PlayerInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerInfo.swift; sourceTree = "<group>"; };
 		C90960731E7B7644002A2803 /* PropertyListConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertyListConvertible.swift; sourceTree = "<group>"; };
 		C92E96CC1E78C0780033D198 /* PlayerService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerService.swift; sourceTree = "<group>"; };
 		C9339E071E78C3D5004F63A9 /* Routes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Routes.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				C94A4F3D1E776EF60028E6D4 /* Attack.swift */,
 				C94A4F3F1E776EFF0028E6D4 /* Item.swift */,
 				C94A4F411E776F130028E6D4 /* PlayerStats.swift */,
+				C9017B011E7F0D7F004298BD /* PlayerInfo.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -373,6 +376,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9017B021E7F0D7F004298BD /* PlayerInfo.swift in Sources */,
 				C9D59E291E739B2A00A2DBF8 /* ViewController.swift in Sources */,
 				C9339E081E78C3D5004F63A9 /* Routes.swift in Sources */,
 				C94A4F401E776EFF0028E6D4 /* Item.swift in Sources */,

@@ -16,7 +16,7 @@ protocol ConnectionManagerDelegate: class {
      Called when the client receives the list of currently active players.
      - parameter playerInfo: An array containing dictionaries of player displayNames and UUIDs
      */
-    func didReceive(activePlayersInfo playerInfo: [[String : String]])
+    func didReceive(activePlayersInfo playerInfo: [PlayerInfo])
 }
 
 /// Manages everything concerning websockets! Including connecting, disconnecting, and sending/receiving messages
@@ -109,8 +109,8 @@ extension ConnectionManager: WebSocketDelegate {
     }
     
     func handleActivePlayers(json: JSON) {
-        let playerInfoArray = JSONParser.parse(ActivePlayersJSON: json)
-        delegate?.didReceive(activePlayersInfo: playerInfoArray)
+        let playerInfo = JSONParser.parse(ActivePlayersJSON: json)
+        delegate?.didReceive(activePlayersInfo: playerInfo)
     }
     
     

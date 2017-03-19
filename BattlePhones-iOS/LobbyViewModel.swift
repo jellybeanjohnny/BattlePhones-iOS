@@ -16,7 +16,7 @@ class LobbyViewModel {
     
     weak var delegate: LobbyViewModelDelegate?
     
-    var activePlayers: [[String : String]] = []
+    var activePlayers: [PlayerInfo] = []
     
     func viewDidLoad() {
         startConnection()
@@ -27,16 +27,13 @@ class LobbyViewModel {
     }
     
     func displayName(forRowAtIndexPath indexPath: IndexPath) -> String {
-        guard let displayName = activePlayers[indexPath.row]["displayName"] else {
-            return ""
-        }
-        return displayName
+        return activePlayers[indexPath.row].displayName
     }
     
     func didSelectRow(atIndexPath indexPath: IndexPath) {
-        
+        // get the player for this indexpath
+        let opponentInfo = activePlayers[indexPath.row]
     }
-    
     
     fileprivate func startConnection() {
         ConnectionManager.sharedInstance.delegate = self
@@ -47,18 +44,13 @@ class LobbyViewModel {
 
 extension LobbyViewModel: ConnectionManagerDelegate {
     
-    func didReceive(activePlayersInfo playerInfo: [[String : String]]) {
+    func didReceive(activePlayersInfo playerInfo: [PlayerInfo]) {
         filterAndSetActivePlayers(playerInfo: playerInfo)
         delegate?.refresh()
     }
     
-    func filterAndSetActivePlayers(playerInfo: [[String : String]]) {
+    func filterAndSetActivePlayers(playerInfo: [PlayerInfo]) {
         guard let currentPlayerUUID = Player.currentPlayer?.uuid else { return }
-        activePlayers = playerInfo.filter{
-            if let uuid = $0["uuid"] {
-                return uuid != currentPlayerUUID
-            }
-            return false
-        }
+        activePlayers = playerInfo.filter{ $0.uuid != currentPlayerUUID }
     }
 }
