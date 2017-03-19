@@ -20,10 +20,11 @@ class ConnectionManager {
     
     static let sharedInstance = ConnectionManager()
     
-    fileprivate let socket = WebSocket(url: URL(string: Routes.builder(usingBase: .baseRemoteWebSocket, path: nil))!)
+    fileprivate let socket = WebSocket(url: URL(string: Routes.builder(usingBase: .ngrokWebSocket, path: nil))!)
     
     enum EventType: String {
-        case playerJoined
+        case playerJoinInactive
+        case playerJoinActive
     }
     
     fileprivate init() {
@@ -32,15 +33,16 @@ class ConnectionManager {
     
     //MARK: - Private
     
-    fileprivate func sendPlayerInfoToServer() {
+    fileprivate func sendInitialConnectionToServer() {
         guard let currentPlayer = Player.currentPlayer() else { return }
         let infoDict = [
             "displayName" : currentPlayer.displayName,
             "uuid"        : currentPlayer.uuid,
-            "eventType"   : EventType.playerJoined.rawValue
+            "eventType"   : EventType.playerJoinInactive.rawValue
         ]
         write(usingInfo: infoDict)
     }
+    
     
     fileprivate func write(usingInfo info: [String : String]) {
         do {
@@ -64,17 +66,23 @@ class ConnectionManager {
         socket.delegate = nil
     }
     
+    func joinLobby() {
+        let infoDict = ["eventType" : EventType.playerJoinActive.rawValue]
+        write(usingInfo: infoDict)
+    }
+    
 }
 
 //MARK: - WebSocketDelegate
 extension ConnectionManager: WebSocketDelegate {
     
     func websocketDidConnect(socket: WebSocket) {
-        sendPlayerInfoToServer()
+        sendInitialConnectionToServer()
     }
     
     func websocketDidReceiveData(socket: WebSocket, data: Data) {
-        //TODO: Stub
+        let json = JSON(data)
+        print("Recevied JSON: \(json)")
     }
     
     func websocketDidDisconnect(socket: WebSocket, error: NSError?) {
@@ -82,7 +90,7 @@ extension ConnectionManager: WebSocketDelegate {
     }
     
     func websocketDidReceiveMessage(socket: WebSocket, text: String) {
-        //TODO: Stub
+        print("Received message from server: \(text)")
     }
     
 }

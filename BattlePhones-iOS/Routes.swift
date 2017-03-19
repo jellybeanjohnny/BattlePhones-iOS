@@ -17,6 +17,8 @@ enum Base: String {
     case baseLocalhostWebSocket = "ws://localhost:8080/"
     case baseRemoteHTTP = "https://battlephones-server.herokuapp.com/"
     case baseRemoteWebSocket = "ws://battlephones-server.herokuapp.com/"
+    case ngrokHTTP = "http://c167f35d.ngrok.io"
+    case ngrokWebSocket = "ws://c167f35d.ngrok.io"
 }
 
 struct Routes {

@@ -49,18 +49,17 @@ class LobbyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        ConnectionManager.sharedInstance.connect()
         title = "Lobby"
         tableView.delegate = self
         tableView.dataSource = self
         
         let cellNib = UINib(nibName: String(describing: LobbyTableViewCell.self), bundle: Bundle.main)
         tableView.register(cellNib, forCellReuseIdentifier: "LobbyCell")
-        
-        print(Player.currentPlayer() ?? "nope")
     }
     
     @IBAction func joinButtonPressed(_ sender: Any) {
-        ConnectionManager.sharedInstance.connect()
+        ConnectionManager.sharedInstance.joinLobby()
     }
     
 }
