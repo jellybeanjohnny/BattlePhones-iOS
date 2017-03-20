@@ -31,8 +31,12 @@ class LobbyViewModel {
     }
     
     func didSelectRow(atIndexPath indexPath: IndexPath) {
-        // get the player for this indexpath
         let opponentInfo = activePlayers[indexPath.row]
+        sendChallengeRequest(withInfo: opponentInfo)
+    }
+    
+    fileprivate func sendChallengeRequest(withInfo opponentInfo: PlayerInfo) {
+        ConnectionManager.sharedInstance.challenge(opponentUsing: opponentInfo)
     }
     
     fileprivate func startConnection() {
@@ -52,5 +56,15 @@ extension LobbyViewModel: ConnectionManagerDelegate {
     func filterAndSetActivePlayers(playerInfo: [PlayerInfo]) {
         guard let currentPlayerUUID = Player.currentPlayer?.uuid else { return }
         activePlayers = playerInfo.filter{ $0.uuid != currentPlayerUUID }
+    }
+    
+    func didReceive(challengeRequestWith playerInfo: PlayerInfo) {
+        // Immediately accept for now, present battle screen
+        print("present battle screen...")
+        ConnectionManager.sharedInstance.sendChallengeResponse(using: playerInfo, isChallengeAccepted: true)
+    }
+    
+    func didReceive(challengeResponseWith info: [String : String]) {
+        print("present battle screen...")
     }
 }

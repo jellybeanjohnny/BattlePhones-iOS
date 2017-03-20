@@ -8,7 +8,6 @@
 
 import Foundation
 import Starscream
-import SwiftyJSON
 
 
 protocol ConnectionManagerDelegate: class {
@@ -17,6 +16,8 @@ protocol ConnectionManagerDelegate: class {
      - parameter playerInfo: An array containing dictionaries of player displayNames and UUIDs
      */
     func didReceive(activePlayersInfo playerInfo: [PlayerInfo])
+    func didReceive(challengeRequestWith playerInfo: PlayerInfo)
+    func didReceive(challengeResponseWith info: [String : String])
 }
 
 /// Manages everything concerning websockets! Including connecting, disconnecting, and sending/receiving messages
@@ -32,6 +33,8 @@ class ConnectionManager {
         case playerJoinInactive
         case playerJoinActive
         case activePlayers
+        case challengeRequest
+        case challengeResponse
     }
     
     fileprivate init() {
@@ -54,8 +57,9 @@ class ConnectionManager {
     fileprivate func write(usingInfo info: [String : String]) {
         do {
             let jsonData = try JSONSerialization.data(withJSONObject: info, options: .prettyPrinted)
-            let jsonString = String(data: jsonData, encoding: .utf8)!
-            socket.write(string: jsonString)
+            if let jsonString = String(data: jsonData, encoding: .utf8) {
+               socket.write(string: jsonString)
+            }
         } catch {
             print(error.localizedDescription)
         }
@@ -78,6 +82,24 @@ class ConnectionManager {
         write(usingInfo: infoDict)
     }
     
+    func challenge(opponentUsing opponentInfo: PlayerInfo) {
+        print("Sending challenge to \(opponentInfo.displayName)")
+        let infoDict = [
+            "eventType" : EventType.challengeRequest.rawValue,
+            "opponentUUID" : opponentInfo.uuid
+        ]
+        write(usingInfo: infoDict)
+    }
+    
+    func sendChallengeResponse(using opponentInfo: PlayerInfo, isChallengeAccepted: Bool) {
+        print("Sending response to \(opponentInfo.displayName)")
+        let infoDict = [
+            "eventType" : EventType.challengeResponse.rawValue,
+            "challengeResponse" : isChallengeAccepted ? "accepted" : "declined",
+            "opponentUUID" : opponentInfo.uuid,
+        ]
+        write(usingInfo: infoDict)
+    }
 }
 
 //MARK: - WebSocketDelegate
@@ -97,20 +119,33 @@ extension ConnectionManager: WebSocketDelegate {
     
     func websocketDidReceiveMessage(socket: WebSocket, text: String) {
         print("Received message from server: \(text)")
-        
-        let json = JSON(parseJSON: text)
-        let eventType = json["eventType"].stringValue
+    
+        let eventType = JSONParser.parse(eventType: text)
         
         if eventType == EventType.activePlayers.rawValue {
-            handleActivePlayers(json: json)
-        } else {
-            // other events
+            handleActivePlayers(text: text)
+        } else if eventType == EventType.challengeRequest.rawValue {
+            handleChallengeRequest(text: text)
+        } else if eventType == EventType.challengeResponse.rawValue {
+            handleChallengeResponse(text: text)
         }
     }
     
-    func handleActivePlayers(json: JSON) {
-        let playerInfo = JSONParser.parse(ActivePlayersJSON: json)
+    func handleActivePlayers(text: String) {
+        let playerInfo = JSONParser.parse(activePlayers: text)
         delegate?.didReceive(activePlayersInfo: playerInfo)
+    }
+    
+    func handleChallengeRequest(text: String) {
+        print("Received challenger request: \(text)")
+        let playerInfo = JSONParser.parse(challengeRequest: text)
+        delegate?.didReceive(challengeRequestWith: playerInfo)
+    }
+    
+    func handleChallengeResponse(text: String) {
+        print("Received challenge response: \(text)")
+        let responseInfo = JSONParser.parse(challengeResponse: text)
+        delegate?.didReceive(challengeResponseWith: responseInfo)
     }
     
     

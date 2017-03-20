@@ -10,6 +10,7 @@ import Foundation
 import SwiftyJSON
 
 struct JSONParser {
+    
     static func parse(using value: Any) -> Player {
         
         let json = JSON(value)
@@ -24,11 +25,31 @@ struct JSONParser {
         return player
     }
     
-    static func parse(ActivePlayersJSON json: JSON) -> [PlayerInfo] {
-        
+    static func parse(eventType jsonString: String) -> String {
+        let json = JSON(parseJSON: jsonString)
+        let eventType = json["eventType"].stringValue
+        return eventType
+    }
+    
+    static func parse(activePlayers text: String) -> [PlayerInfo] {
+        let json = JSON(parseJSON: text)
         let info = json["activePlayers"].arrayValue.map {
             PlayerInfo(displayName: $0["displayName"].stringValue, uuid: $0["uuid"].stringValue)
         }
+        return info
+    }
+    
+    static func parse(challengeRequest text: String) -> PlayerInfo {
+        let json = JSON(parseJSON: text)
+        let challengerDisplayName = json["challengerDisplayName"].stringValue
+        let challengerUUID = json["challengerUUID"].stringValue
+        return PlayerInfo(displayName: challengerDisplayName, uuid: challengerUUID)
+    }
+    
+    static func parse(challengeResponse text: String) -> [String : String] {
+        let json = JSON(parseJSON: text)
+        let info = ["opponentUUID" : json["opponentUUID"].stringValue,
+                    "challengeResponse" : json["challengeResponse"].stringValue]
         return info
     }
 }
