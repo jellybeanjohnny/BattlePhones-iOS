@@ -10,6 +10,7 @@ import Foundation
 
 protocol LobbyViewModelDelegate: class {
     func refresh()
+    func presentBattleScene()
 }
 
 class LobbyViewModel {
@@ -62,9 +63,11 @@ extension LobbyViewModel: ConnectionManagerDelegate {
         // Immediately accept for now, present battle screen
         print("present battle screen...")
         ConnectionManager.sharedInstance.sendChallengeResponse(using: playerInfo, isChallengeAccepted: true)
+        delegate?.presentBattleScene()
     }
     
     func didReceive(challengeResponseWith info: [String : String]) {
         print("present battle screen...")
+        delegate?.presentBattleScene()
     }
 }

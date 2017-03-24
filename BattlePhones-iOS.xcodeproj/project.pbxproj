@@ -21,6 +21,8 @@
 		C94A4F4B1E778FDC0028E6D4 /* LobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94A4F491E778FDC0028E6D4 /* LobbyViewController.swift */; };
 		C94A4F4C1E778FDC0028E6D4 /* LobbyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C94A4F4A1E778FDC0028E6D4 /* LobbyViewController.xib */; };
 		C94A4F4F1E7799A80028E6D4 /* LoginStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94A4F4E1E7799A80028E6D4 /* LoginStateManager.swift */; };
+		C954D13B1E84A54600B4E39A /* BattleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C954D1391E84A54600B4E39A /* BattleViewController.swift */; };
+		C954D13C1E84A54600B4E39A /* BattleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C954D13A1E84A54600B4E39A /* BattleViewController.xib */; };
 		C9A427AA1E7519E50019AD7B /* CloudKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A427A91E7519E50019AD7B /* CloudKitService.swift */; };
 		C9A427AD1E751F5A0019AD7B /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9A427AC1E751F5A0019AD7B /* CloudKit.framework */; };
 		C9A427AF1E7534040019AD7B /* ViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A427AE1E7534040019AD7B /* ViewController+Alert.swift */; };
@@ -54,6 +56,8 @@
 		C94A4F491E778FDC0028E6D4 /* LobbyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LobbyViewController.swift; sourceTree = "<group>"; };
 		C94A4F4A1E778FDC0028E6D4 /* LobbyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LobbyViewController.xib; sourceTree = "<group>"; };
 		C94A4F4E1E7799A80028E6D4 /* LoginStateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginStateManager.swift; sourceTree = "<group>"; };
+		C954D1391E84A54600B4E39A /* BattleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BattleViewController.swift; sourceTree = "<group>"; };
+		C954D13A1E84A54600B4E39A /* BattleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BattleViewController.xib; sourceTree = "<group>"; };
 		C9A427A91E7519E50019AD7B /* CloudKitService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitService.swift; sourceTree = "<group>"; };
 		C9A427AB1E7519ED0019AD7B /* BattlePhones-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "BattlePhones-iOS.entitlements"; sourceTree = "<group>"; };
 		C9A427AC1E751F5A0019AD7B /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
@@ -160,9 +164,19 @@
 			name = Lobby;
 			sourceTree = "<group>";
 		};
+		C954D1381E84A51900B4E39A /* Battle */ = {
+			isa = PBXGroup;
+			children = (
+				C954D1391E84A54600B4E39A /* BattleViewController.swift */,
+				C954D13A1E84A54600B4E39A /* BattleViewController.xib */,
+			);
+			name = Battle;
+			sourceTree = "<group>";
+		};
 		C98F3BD61E7769AB00BE54DE /* App */ = {
 			isa = PBXGroup;
 			children = (
+				C954D1381E84A51900B4E39A /* Battle */,
 				C9D5D9D11E7CA81D00839F02 /* ConnectionManager */,
 				C94A4F471E778E380028E6D4 /* Extensions */,
 				C92E96CB1E78C06A0033D198 /* Services */,
@@ -315,6 +329,7 @@
 				C9B86CF61E766E3400CC497E /* LoginViewController.xib in Resources */,
 				C9D5D9CA1E7C53C300839F02 /* LobbyTableViewCell.xib in Resources */,
 				C9D59E311E739B2A00A2DBF8 /* LaunchScreen.storyboard in Resources */,
+				C954D13C1E84A54600B4E39A /* BattleViewController.xib in Resources */,
 				C9D5D9BE1E7C4C8200839F02 /* kenvector_future.ttf in Resources */,
 				C94A4F4C1E778FDC0028E6D4 /* LobbyViewController.xib in Resources */,
 				C9D59E2E1E739B2A00A2DBF8 /* Assets.xcassets in Resources */,
@@ -376,6 +391,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C954D13B1E84A54600B4E39A /* BattleViewController.swift in Sources */,
 				C9017B021E7F0D7F004298BD /* PlayerInfo.swift in Sources */,
 				C9D59E291E739B2A00A2DBF8 /* ViewController.swift in Sources */,
 				C9339E081E78C3D5004F63A9 /* Routes.swift in Sources */,

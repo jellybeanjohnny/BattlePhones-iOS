@@ -81,4 +81,9 @@ extension LobbyViewController: LobbyViewModelDelegate {
     func refresh() {
         tableView.reloadData()
     }
+    
+    func presentBattleScene() {
+        let battleViewController = BattleViewController()
+        present(battleViewController, animated: true, completion: nil)
+    }
 }
