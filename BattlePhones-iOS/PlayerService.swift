@@ -21,7 +21,8 @@ struct PlayerService {
             case .success(let value):
                 let player = JSONParser.parse(using: value)
                 success(player)
-            case .failure(_):
+            case .failure(let error):
+                print(error.localizedDescription)
                 failure()
             }
         }

@@ -59,7 +59,6 @@ class LoginViewModel {
             self.delegate?.didLogInSuccessfully()
             self.delegate?.didStopLoading()
         }, failure: {
-            print("Failure")
             self.delegate?.didFailToSavePlayer()
             self.delegate?.didStopLoading()
         })

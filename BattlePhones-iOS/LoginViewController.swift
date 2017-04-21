@@ -79,6 +79,7 @@ extension LoginViewController: LoginViewModelDelegate {
     
     func didFailToLoadUUID(error: CloudKitError) {
         switch error {
+            //TODO: this is not presenting on the correct view in the hierarchy, fix this
         case .notAuthenticated: self.showAlert(title: "Uh oh!", message: "You're not signed into iCloud. Please go to Settings and sign in to your iCloud Account.")
         case .other: self.showAlert(title: "Uh oh!", message: "Something went wrong! Please try again")
         }
