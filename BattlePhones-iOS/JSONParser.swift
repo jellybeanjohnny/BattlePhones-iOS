@@ -52,4 +52,13 @@ struct JSONParser {
                     "challengeResponse" : json["challengeResponse"].stringValue]
         return info
     }
+    
+    /// parses the returned message from the server containing information about both players after processing each turn
+    static func parse(battleEvent text: String) -> [String : String] {
+        //TODO: add appropriate fields for updating the display info on each side
+        let json = JSON(parseJSON: text)
+        let info = ["battleEventType" : json["battleEventType"].stringValue,
+                    "description" : json["description"].stringValue]
+        return info
+    }
 }

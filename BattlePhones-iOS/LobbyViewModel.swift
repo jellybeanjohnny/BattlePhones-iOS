@@ -41,7 +41,7 @@ class LobbyViewModel {
     }
     
     fileprivate func startConnection() {
-        ConnectionManager.sharedInstance.delegate = self
+        ConnectionManager.sharedInstance.connectionDelegate = self
         ConnectionManager.sharedInstance.connect()
     }
     

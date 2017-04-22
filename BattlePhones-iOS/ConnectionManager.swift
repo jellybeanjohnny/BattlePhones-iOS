@@ -10,6 +10,7 @@ import Foundation
 import Starscream
 
 
+
 protocol ConnectionManagerDelegate: class {
     /**
      Called when the client receives the list of currently active players.
@@ -20,12 +21,17 @@ protocol ConnectionManagerDelegate: class {
     func didReceive(challengeResponseWith info: [String : String])
 }
 
+protocol BattleEventDelegate: class {
+    func didReceive(battleEventInfo: [String : String])
+}
+
 /// Manages everything concerning websockets! Including connecting, disconnecting, and sending/receiving messages
 class ConnectionManager {
     
     static let sharedInstance = ConnectionManager()
     
-    weak var delegate: ConnectionManagerDelegate?
+    weak var connectionDelegate: ConnectionManagerDelegate?
+    weak var battleEventDelegate: BattleEventDelegate?
     
     fileprivate let socket = WebSocket(url: URL(string: Routes.builder(usingBase: .ngrokWebSocket, path: nil))!)
     
@@ -35,6 +41,7 @@ class ConnectionManager {
         case activePlayers
         case challengeRequest
         case challengeResponse
+        case battle
     }
     
     fileprivate init() {
@@ -128,24 +135,32 @@ extension ConnectionManager: WebSocketDelegate {
             handleChallengeRequest(text: text)
         } else if eventType == EventType.challengeResponse.rawValue {
             handleChallengeResponse(text: text)
+        } else if eventType == EventType.battle.rawValue {
+            handleBattleEvents(text: text)
         }
     }
     
     func handleActivePlayers(text: String) {
         let playerInfo = JSONParser.parse(activePlayers: text)
-        delegate?.didReceive(activePlayersInfo: playerInfo)
+        connectionDelegate?.didReceive(activePlayersInfo: playerInfo)
     }
     
     func handleChallengeRequest(text: String) {
         print("Received challenger request: \(text)")
         let playerInfo = JSONParser.parse(challengeRequest: text)
-        delegate?.didReceive(challengeRequestWith: playerInfo)
+        connectionDelegate?.didReceive(challengeRequestWith: playerInfo)
     }
     
     func handleChallengeResponse(text: String) {
         print("Received challenge response: \(text)")
         let responseInfo = JSONParser.parse(challengeResponse: text)
-        delegate?.didReceive(challengeResponseWith: responseInfo)
+        connectionDelegate?.didReceive(challengeResponseWith: responseInfo)
+    }
+    
+    func handleBattleEvents(text: String) {
+        print("Received battle event")
+        let battleEventInfo = JSONParser.parse(battleEvent: text)
+        battleEventDelegate?.didReceive(battleEventInfo: battleEventInfo)
     }
     
     
